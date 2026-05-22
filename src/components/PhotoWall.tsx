@@ -11,9 +11,14 @@ export function PhotoWall({ limit }: PhotoWallProps) {
     <div className="photo-wall">
       {visiblePhotos.map((photo, index) => (
         <article className={`photo-card photo-card-${index + 1}`} key={photo.id}>
-          <div className="photo-placeholder">
-            <span>{photo.title}</span>
-          </div>
+          <img
+            className="photo-image"
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+          />
+
+          <div className="photo-overlay" />
 
           <div className="photo-info">
             <h3>{photo.title}</h3>
