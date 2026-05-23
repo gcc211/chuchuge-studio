@@ -1131,3 +1131,174 @@ body {
     font-size: 20px;
   }
 }
+/* =========================
+   Photo wall final layout fix
+   ========================= */
+
+.photo-wall {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: 22px;
+  width: 100%;
+}
+
+.photo-card,
+.photo-card-1,
+.photo-card-2,
+.photo-card-3,
+.photo-card-4,
+.photo-card-5,
+.photo-card-6,
+.photo-card-7,
+.photo-card-8,
+.photo-card-9,
+.photo-card-10 {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  min-height: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background: #111827;
+  box-shadow: var(--shadow);
+}
+
+.photo-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.35s ease;
+}
+
+.photo-card:hover .photo-image {
+  transform: scale(1.04);
+}
+
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: auto;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0.68)
+  );
+}
+
+.photo-placeholder span {
+  display: none;
+}
+
+.photo-info {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 3;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(8, 11, 18, 0.68);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.photo-info h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.photo-info p {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 平板：两列 */
+@media (max-width: 900px) {
+  .photo-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: 18px;
+  }
+
+  .photo-card,
+  .photo-card-1,
+  .photo-card-2,
+  .photo-card-3,
+  .photo-card-4,
+  .photo-card-5,
+  .photo-card-6,
+  .photo-card-7,
+  .photo-card-8,
+  .photo-card-9,
+  .photo-card-10 {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .photo-card {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* 手机：单列 */
+@media (max-width: 560px) {
+  .photo-wall {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 20px;
+  }
+
+  .photo-card,
+  .photo-card-1,
+  .photo-card-2,
+  .photo-card-3,
+  .photo-card-4,
+  .photo-card-5,
+  .photo-card-6,
+  .photo-card-7,
+  .photo-card-8,
+  .photo-card-9,
+  .photo-card-10 {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .photo-card {
+    min-height: auto !important;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+  }
+
+  .photo-info {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .photo-info h3 {
+    font-size: 17px;
+  }
+
+  .photo-info p {
+    font-size: 13px;
+  }
+}

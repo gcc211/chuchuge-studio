@@ -44,10 +44,10 @@ export const photos: Photo[] = [
   },
   {
     id: "project-1",
-    src: "/photos/project-1.jpg",
+    src: "/photos/照片/网站.jpg",
     alt: "项目记录",
     title: "项目实践",
-    description: "把想法做成可以运行的作品",
+    description: "搭个网站，记录一些学习和项目实践的片段！",
   },
   {
     id: "city-1",
